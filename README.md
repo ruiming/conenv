@@ -1,7 +1,22 @@
 # Get env variables from config file
 
+[![Npm](https://img.shields.io/npm/v/conenv.svg)](https://img.shields.io/npm/v/conenv.svg)
 [![License](https://img.shields.io/npm/l/leibniz.svg?maxAge=2592000)](https://img.shields.io/npm/l/leibniz.svg?maxAge=2592000)
 
+## Install
+
+#### yarn
+```javascript
+yarn add conenv -S
+```
+
+
+#### npm
+```javascript
+npm install conenv -S
+```
+
+## Example
 ```javascript
 const conenv = require('conenv')
 
