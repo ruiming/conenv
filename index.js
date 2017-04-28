@@ -1,20 +1,25 @@
-const cache = new Map()
+const cache = {}
 
 /**
  * ENV:DB_PASS => process.env.DB_PASS
  * ENV:CACHE_DB => process.env.CACHE_DB
  */
 function conenv (config) {
-  if (cache.has(config)) {
-    return cache.get(config)
+  const stringifyConfig = JSON.stringify(config)
+  if (cache[stringifyConfig]) {
+    return cache[stringifyConfig]
   }
-  const target = JSON.parse(JSON.stringify(config))
+  const target = JSON.parse(stringifyConfig)
   for (const property in target) {
-    const items = target[property].match(/^ENV:([A-Z_]+)$/)
-    if (items !== null) {
-      target[property] = process.env[items[1]]
+    if (typeof target[property] === 'string') {
+      const items = target[property].match(/^ENV:([A-Z_]+)$/)
+      if (items !== null) {
+        target[property] = process.env[items[1]]
+      }
+    } else {
+      target[property] = conenv(target[property])
     }
   }
-  cache.set(config, target)
+  cache[stringifyConfig] = target
   return target
 }

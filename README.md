@@ -3,6 +3,8 @@
 [![Npm](https://img.shields.io/npm/v/conenv.svg)](https://img.shields.io/npm/v/conenv.svg)
 [![License](https://img.shields.io/npm/l/leibniz.svg?maxAge=2592000)](https://img.shields.io/npm/l/leibniz.svg?maxAge=2592000)
 
+> Attention! Please not use this module untile it is stable
+
 ## Install
 
 #### yarn
