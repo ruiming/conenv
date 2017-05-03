@@ -23,3 +23,5 @@ function conenv (config) {
   cache[stringifyConfig] = target
   return target
 }
+
+module.exports = conenv
